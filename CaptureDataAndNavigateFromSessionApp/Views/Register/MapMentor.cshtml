@@ -1,0 +1,33 @@
+﻿@model CaptureDataAndNavigateFromSessionApp.Models.MentorMenteeCustomModel
+
+<div class="mainContainer">
+
+    <form id="registerForm" method="post" asp-action="MapMentorAndMentee">
+        <h1 class="span2">Map Mentor & Mentee</h1>
+
+        <div class="form-group">
+            <label class="control-label">Mentee Name</label>
+            <input type="text" class="form-control" asp-for="@Model!.Mentee!.MenteeName" value="@Model!.Mentee!.MenteeName" />
+            <span asp-validation-for="@Model!.Mentee!.MenteeName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model!.Mentee!.MenteeEmail" class="control-label">Email</label>
+            <input type="text" class="form-control" asp-for="@Model!.Mentee!.MenteeEmail" value="@Model!.Mentee!.MenteeEmail" />
+            <span asp-validation-for="@Model!.Mentee!.MenteeName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="MentorId" class="col-md-2 form-label"> Select Mentor</label>
+            <select asp-for="MentorId" asp-items="@Model.Mentors" class="form-control">
+                <option></option>
+            </select>
+            <span asp-validation-for="MentorId" class="form-span-error"></span>
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Submit " class="btn btn-primary" />
+        </div>
+    </form>
+
+</div>
